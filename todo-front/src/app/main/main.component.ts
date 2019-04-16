@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   public tasks: Task[] = [];
   public dispTask: Task;
   public loading = true;
+  public taskloaded = false;
 
   ngOnInit() {
     this.provider.getTasklists().then(
@@ -36,6 +37,7 @@ export class MainComponent implements OnInit {
   getTask(id: number) {
     this.provider.getTask(id).then(res => {
       this.dispTask = res;
+      this.taskloaded = true;
     });
 
   }
